@@ -80,6 +80,11 @@ Add-AadrmTemplate -Names $names -Descriptions $descriptions -RightsDefinitions $
 Import-Csv -path $DistributionGroupMembers | foreach {Add-DistributionGroupMember -Identity $_.DL -Member $_.Alias}
 
 
+##################Connect to MS Graph###########################
+
+Install-Module -Name Microsoft.Graph.Intune
+
+Connect-MSGraph -AdminConsent
 ####################################################
 
 function Get-AuthToken {
